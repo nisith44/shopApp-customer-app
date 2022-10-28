@@ -1,25 +1,89 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Inbox
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+
 
 <ion-content [fullscreen]="true">
-  <ion-refresher slot="fixed" (ionRefresh)="refresh($event)">
-    <ion-refresher-content></ion-refresher-content>
-  </ion-refresher>
+
+  <nav class="navbar navbar-dark bg-fill-secondary">
   
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">
-        Inbox
-      </ion-title>
-    </ion-toolbar>
-  </ion-header>
+    <a class="drawer-trigger collapsed"  data-toggle="collapse" data-target="#drawer">
+      <span class="icon icon-menu"></span>
+    </a>
+    
+    <a class="navbar-brand d-flex align-items-center" href="#">
+      <!-- <div class="mr-3">
+        <img src="images/logo.png" class="logo"/>
+      </div> -->
+      <div>
+        ShopApp
+      </div>
+    </a>
+    <div class="extra">
+      <a href="#" class="btn btn-fill-primary" data-toggle="modal" data-target="#registerModal">Join</a>
+    </div>
+  </nav>
+
+  <div>
+
+    <div class="row m-sm" >
+      <div class="col-10">
+        <p class="cat-name" >Pizza</p>
+      </div>
+      <div class="col-2">
+        <ion-icon name="chevron-forward-outline"></ion-icon>
+      </div>
+    </div>
   
-  <ion-list>
-    <app-message *ngFor="let message of getMessages()" [message]="message"></app-message>
-  </ion-list>
+    <div class="row m-sm">
+      <div class="col p-sm">
+        <div class="betting-category mb-2 pad-7">
+          <img class="img-sm" src="https://adminsc.pizzahut.lk/images/mainmenu/hotbuttercuttlefish56caf5e4035b46328920b24fed527a6d.jpg" alt="">
+          <p class="prod-name">Vegetable Pizza</p>
+          <p class="prod-price">$39.00</p>
+        </div>
+      </div>
+      <div class="col p-sm">
+        <div class="betting-category mb-2 pad-7">
+          <img class="img-sm" src="https://adminsc.pizzahut.lk/images/mainmenu/hotbuttercuttlefish56caf5e4035b46328920b24fed527a6d.jpg" alt="">
+          <p class="prod-name">Vegetable Pizza</p>
+          <p class="prod-price">$39.00</p>
+        </div>
+      </div>
+      <div class="col p-sm">
+        <div class="betting-category mb-2 pad-7">
+          <img class="img-sm" src="https://adminsc.pizzahut.lk/images/mainmenu/hotbuttercuttlefish56caf5e4035b46328920b24fed527a6d.jpg" alt="">
+          <p class="prod-name">Vegetable Pizza</p>
+          <p class="prod-price">$39.00</p>
+        </div>
+      </div>
+  
+    </div>
+
+  </div>
+  
+  
+  
 </ion-content>
+
+<!-- <ion-tabs>
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button tab="schedule">
+      <ion-icon name="calendar"></ion-icon>
+      <ion-label>Schedule</ion-label>
+      <ion-badge>6</ion-badge>
+    </ion-tab-button>
+
+    <ion-tab-button tab="speakers">
+      <ion-icon name="person-circle"></ion-icon>
+      <ion-label>Speakers</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="map">
+      <ion-icon name="map"></ion-icon>
+      <ion-label>Map</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="about">
+      <ion-icon name="information-circle"></ion-icon>
+      <ion-label>About</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs> -->
