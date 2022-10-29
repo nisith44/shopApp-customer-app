@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { CommonService } from 'src/app/services/common.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -12,7 +13,7 @@ export class LoginPage implements OnInit {
   loginForm: FormGroup;
 
   constructor(private formBuilder:FormBuilder,private userService:UserService,
-    private router:Router) {
+    private router:Router,private commonService:CommonService) {
     this.loginForm = this.formBuilder.group({
       "username": new FormControl('', [Validators.required,Validators.email]),
       "password": new FormControl('', [Validators.required]),
@@ -33,10 +34,20 @@ export class LoginPage implements OnInit {
         if(res.status=='OK'){
           sessionStorage.setItem('token',res.output.token)
           sessionStorage.setItem('userData',JSON.stringify(res.output.userData))
-          this.router.navigate(['home/main'])
+          this.commonService.successToast("Successfully Logged In")
+          this.router.navigate(['home/main']);
+        }else{
+          this.commonService.errorToast("Username Or Password Incorrect")
         }
+      },(err)=>{
+        this.commonService.errorToast("Login Failed")
       })
     }
+  }
+
+
+  register(){
+    this.commonService.errorToast("register alt")
   }
 
 }
