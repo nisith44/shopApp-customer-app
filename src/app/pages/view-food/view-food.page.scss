@@ -1,0 +1,33 @@
+.main{
+    padding: 15px;
+}
+
+.main-img{
+    border-radius: 10px;
+    width: 100%;
+}
+
+.input-group{
+    width: 130px;
+    button{
+        background: var(--ion-color-primary);
+        --bs-btn-border-color:var(--ion-color-primary)
+    }
+    ion-icon{
+        vertical-align: middle;
+    }
+}
+
+.cart-btn{
+    border-radius: 20px;
+}
+
+.btn-fill-primary {
+    color: #fff;
+    background-color: #fabd1f;
+    border-color: #fabd1f;
+}
+
+.fs-14{
+    font-size: 14px;
+}

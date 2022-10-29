@@ -2,16 +2,14 @@
 
   <app-navbar></app-navbar>
 
-  <br><br><br>
-
-  <div>
+  <div *ngFor="let cat of categories">
     <div class="row m-sm">
-      <div class="d-flex ">
+      <div class="d-flex " (click)="gotoCat(cat)">
         <div class="d-flex flex-column">
-          <span class="t mt-8">1730 Cabourg (FR)</span>
+          <span class="cat-name t mt-8">{{cat.name | titlecase }}</span>
         </div>
         <div class="extra d-flex">
-          <a href="race.html" class="btn btn-tertiary icon ml-2 dif">
+          <a (click)="gotoCat(cat)" class="btn btn-tertiary icon ml-2 dif">
             <span class="icon icon-arrow-right"></span>
           </a>
         </div>
@@ -19,33 +17,16 @@
     </div>
 
     <div class="row m-sm">
-      <div class="col p-sm">
-        <div class="betting-category mb-2 pad-7">
+      <div class="col-4 p-sm" *ngFor="let prod of cat.products">
+        <div (click)="viewFood(prod)" class="betting-category mb-2 pad-7">
           <img class="img-sm"
-            src="https://adminsc.pizzahut.lk/images/mainmenu/hotbuttercuttlefish56caf5e4035b46328920b24fed527a6d.jpg"
+            [src]="prod.img"
             alt="">
-          <p class="prod-name">Vegetable Pizza</p>
-          <p class="prod-price">$39.00</p>
+          <p class="prod-name">{{prod.title}}</p>
+          <p class="prod-price">${{prod.price}}</p>
         </div>
       </div>
-      <div class="col p-sm">
-        <div class="betting-category mb-2 pad-7">
-          <img class="img-sm"
-            src="https://adminsc.pizzahut.lk/images/mainmenu/hotbuttercuttlefish56caf5e4035b46328920b24fed527a6d.jpg"
-            alt="">
-          <p class="prod-name">Vegetable Pizza</p>
-          <p class="prod-price">$39.00</p>
-        </div>
-      </div>
-      <div class="col p-sm">
-        <div class="betting-category mb-2 pad-7">
-          <img class="img-sm"
-            src="https://adminsc.pizzahut.lk/images/mainmenu/hotbuttercuttlefish56caf5e4035b46328920b24fed527a6d.jpg"
-            alt="">
-          <p class="prod-name">Vegetable Pizza</p>
-          <p class="prod-price">$39.00</p>
-        </div>
-      </div>
+      
     </div>
   </div>
 

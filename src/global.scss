@@ -25,4 +25,31 @@
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
 
+*{
+    font-family: Poppins,"Arimo",system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+}
+
+.p-10{
+    padding: 10px;
+}
+
+.ml5{
+    margin-left: 5px;
+}
+
+.betting-category{
+    border-radius: 15px;
+}
+
+.btn-fill-primary {
+    color: #fff;
+    background-color: #fabd1f;
+    border-color: #fabd1f;
+}
+
+.btn-fill-sec {
+    color: #fff;
+    background-color: #f64982;
+    border-color: #fabd1f;
+}
 

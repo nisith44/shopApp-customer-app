@@ -29,7 +29,7 @@
 }
 
 .img-sm{
-    border-radius: 5px;
+    border-radius: 15px;
 }
 
 .prod-name{
@@ -39,7 +39,7 @@
 
 .prod-price{
     font-size: 15px;
-    color: #cd3668;
+    color:#ff9900 ;
     margin: 0;
     font-weight: 600;
 }
@@ -57,4 +57,13 @@
 
 .mt-8{
     margin-top: 8px;
+}
+
+.cat-name{
+    font-size: 18px;
+    font-family: Poppins,"Arimo",system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+}
+
+.d-flex{
+    padding: 0 2px;
 }

@@ -9,7 +9,7 @@ const routes: Routes = [
   
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'home/main',
     pathMatch: 'full'
   },
   {
@@ -27,6 +27,18 @@ const routes: Routes = [
   {
     path: 'my-account',
     loadChildren: () => import('./pages/my-account/my-account.module').then( m => m.MyAccountPageModule)
+  },
+  {
+    path: 'view-food',
+    loadChildren: () => import('./pages/view-food/view-food.module').then( m => m.ViewFoodPageModule)
+  },
+  {
+    path: 'category-foods',
+    loadChildren: () => import('./pages/category-foods/category-foods.module').then( m => m.CategoryFoodsPageModule)
+  },
+  {
+    path: 'login',
+    loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
   },
 ];
 

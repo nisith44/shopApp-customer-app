@@ -1,0 +1,25 @@
+<ion-content>
+
+  <div class="p-10">
+    <form [formGroup]="loginForm" (ngSubmit)="login()" autocomplete="off">
+      <div class="img-div">
+        <img src="assets/icon/burger.png" alt="">
+      </div>
+      <br>
+      <ion-item fill="outline">
+        <ion-label position="floating">Email</ion-label>
+        <ion-input formControlName="username" placeholder="Enter text"></ion-input>
+      </ion-item>
+      <br>
+      <ion-item fill="outline">
+        <ion-label position="floating">Password</ion-label>
+        <ion-input formControlName="password" placeholder="Enter text"></ion-input>
+      </ion-item>
+      <br>
+      <button type="submit" class="btn btn-fill-primary btn-block" >Login</button>
+      <br><br>
+      <button class="btn btn-fill-sec btn-block">Register</button>
+    </form>
+  </div>
+
+</ion-content>
