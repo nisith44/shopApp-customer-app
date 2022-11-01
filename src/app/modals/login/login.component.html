@@ -1,18 +1,22 @@
 <ion-content>
 
   <div class="p-10">
+    <div class="d-flex flex-row-reverse">
+        <ion-icon name="close-outline" (click)="close()"></ion-icon>
+    </div>
     <form [formGroup]="loginForm" (ngSubmit)="login()" autocomplete="off">
       <div class="img-div">
         <img src="assets/icon/burger.png" alt="">
       </div>
       <br>
+      <h1>Login</h1>
       <div class="form-floating mb-3">
-        <input formControlName="username" type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-        <label for="floatingInput">Email address</label>
+        <input formControlName="username" type="email" class="form-control" id="floatingInput1" placeholder="name@example.com">
+        <label for="floatingInput1">Email address</label>
       </div>
       <div class="form-floating mb-3">
-        <input formControlName="password" type="password" class="form-control" id="floatingInput" >
-        <label for="floatingInput">Password</label>
+        <input formControlName="password" type="password" class="form-control" id="floatingInput2" >
+        <label for="floatingInput2">Password</label>
       </div>
       
       <button type="submit" class="btn btn-yellow btn-block" >Login</button>

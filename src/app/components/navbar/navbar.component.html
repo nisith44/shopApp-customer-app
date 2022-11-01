@@ -43,6 +43,12 @@
         My Account
       </ion-label>
     </ion-item>
+    <ion-item (click)="logout()">
+      <ion-icon name="log-out-outline" slot="start"></ion-icon>
+      <ion-label>
+        Log Out
+      </ion-label>
+    </ion-item>
   </ion-content>
 </ion-menu>
 
@@ -56,7 +62,15 @@
       </div>
     </a>
     <div class="extra">
-      <a href="#" class="btn btn-fill-primary" data-toggle="modal" data-target="#registerModal">Join</a>
+      <a *ngIf="!isLogged" class="btn btn-fill-primary" (click)="login()">Login</a>
+
+      <div class="cart">
+        <ion-icon *ngIf="isLogged" name="cart-outline"></ion-icon>
+        <ion-badge>6</ion-badge>
+      </div>
+      
+
+      <ion-icon *ngIf="isLogged" name="person-circle-outline"></ion-icon>
     </div>
   </nav>
 </div>

@@ -12,3 +12,19 @@
 ion-menu-button{
     color: white;
 }
+
+.extra ion-icon{
+    font-size: 30px;
+    color: white;
+}
+
+.cart{
+    position: relative;
+    display: inline-block;
+    margin-right: 8px;
+    ion-badge{
+        position: absolute;
+        top: -5px;
+        right: -5px;
+    }
+}

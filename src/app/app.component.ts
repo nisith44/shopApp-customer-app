@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { StmgService } from './services/stmg.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,11 @@ import { Component } from '@angular/core';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
-  constructor() {}
+  constructor(private stmg:StmgService) {
+    let token=sessionStorage.getItem('token');
+    if(token){stmg.updateIsLogged(true)}
+
+    let cart=localStorage.getItem('cart');
+    if(!cart){localStorage.setItem('cart',"[]")}
+  }
 }

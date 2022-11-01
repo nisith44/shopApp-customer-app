@@ -53,3 +53,19 @@
     border-color: #fabd1f;
 }
 
+.form-control:focus {
+    border-color: #fabd1f;
+    box-shadow: 0 0 0 0.25rem rgb(252, 244, 87)
+}
+
+.btn-yellow{
+    color: #fff;
+    background-color: #fabd1f;
+    border-color: #fabd1f;
+}
+
+.login-popup{
+    --height:80%;
+    --width:90%;
+    --border-radius: 10px;
+}

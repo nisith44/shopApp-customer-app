@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProductService } from 'src/app/services/product.service';
+import { StmgService } from 'src/app/services/stmg.service';
 
 @Component({
   selector: 'app-view-food',
@@ -11,7 +12,8 @@ export class ViewFoodPage implements OnInit {
   qty=1
   product: any;
 
-  constructor(private activatedRoute:ActivatedRoute,private productService:ProductService) { }
+  constructor(private activatedRoute:ActivatedRoute,private productService:ProductService,
+    private stmg :StmgService) { }
 
   ngOnInit() {
     this.activatedRoute.queryParams.subscribe(params=>{
@@ -24,7 +26,16 @@ export class ViewFoodPage implements OnInit {
   }
 
   addToCart(){
-
+    let cart=JSON.parse(localStorage.getItem('cart'));
+    let product={
+      id:this.product.product_id,
+      title:this.product.title,
+      qty:this.qty,
+      price:this.product.price
+    }
+    cart.push(product)
+    localStorage.setItem('cart',JSON.stringify(cart))
+    console.log(cart);
   }
 
   increase(){
