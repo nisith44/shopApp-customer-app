@@ -12,6 +12,6 @@ export class AppComponent {
     if(token){stmg.updateIsLogged(true)}
 
     let cart=localStorage.getItem('cart');
-    if(!cart){localStorage.setItem('cart',"[]")}
+    if(!cart){localStorage.setItem('cart',"[]")}else{stmg.updateCart(JSON.parse(cart))}
   }
 }

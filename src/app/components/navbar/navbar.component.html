@@ -64,9 +64,9 @@
     <div class="extra">
       <a *ngIf="!isLogged" class="btn btn-fill-primary" (click)="login()">Login</a>
 
-      <div class="cart">
-        <ion-icon *ngIf="isLogged" name="cart-outline"></ion-icon>
-        <ion-badge>6</ion-badge>
+      <div class="cart" *ngIf="isLogged" (click)="gotoCart()">
+        <ion-icon name="cart-outline"></ion-icon>
+        <ion-badge *ngIf="cart?.length>0">{{cart.length}}</ion-badge>
       </div>
       
 

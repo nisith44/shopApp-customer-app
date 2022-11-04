@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ModalController } from '@ionic/angular';
+import { LoginComponent } from 'src/app/modals/login/login.component';
 import { ProductService } from 'src/app/services/product.service';
 import { StmgService } from 'src/app/services/stmg.service';
 
@@ -11,9 +13,10 @@ import { StmgService } from 'src/app/services/stmg.service';
 export class ViewFoodPage implements OnInit {
   qty=1
   product: any;
+  isLogged: any;
 
   constructor(private activatedRoute:ActivatedRoute,private productService:ProductService,
-    private stmg :StmgService) { }
+    private stmg :StmgService,private modalCtrl:ModalController) { }
 
   ngOnInit() {
     this.activatedRoute.queryParams.subscribe(params=>{
@@ -23,19 +26,38 @@ export class ViewFoodPage implements OnInit {
         this.product=res.output.product
       })
     })
+    this.stmg.isLogged_obs.subscribe((res)=>{
+      this.isLogged=res
+    })
   }
 
   addToCart(){
-    let cart=JSON.parse(localStorage.getItem('cart'));
-    let product={
-      id:this.product.product_id,
-      title:this.product.title,
-      qty:this.qty,
-      price:this.product.price
+    if(this.isLogged){
+      let cart=JSON.parse(localStorage.getItem('cart'));
+      let product={
+        id:this.product.product_id,
+        title:this.product.title,
+        qty:this.qty,
+        price:this.product.price,
+        img:this.product.img
+      }
+      cart.push(product)
+      localStorage.setItem('cart',JSON.stringify(cart))
+      this.stmg.updateCart(cart)
+      console.log(cart);
+    }else{
+      this.login()
     }
-    cart.push(product)
-    localStorage.setItem('cart',JSON.stringify(cart))
-    console.log(cart);
+  }
+
+  async login() {
+    console.log("object");
+    const modal = await this.modalCtrl.create({
+      component: LoginComponent,
+      cssClass:'login-popup',
+      showBackdrop:true
+    });
+    modal.present();
   }
 
   increase(){

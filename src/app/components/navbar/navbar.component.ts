@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ModalController } from '@ionic/angular';
 import { LoginComponent } from 'src/app/modals/login/login.component';
 import { StmgService } from 'src/app/services/stmg.service';
@@ -10,13 +11,17 @@ import { StmgService } from 'src/app/services/stmg.service';
 })
 export class NavbarComponent implements OnInit {
   isLogged: any;
+  cart=[];
 
-  constructor(private modalCtrl:ModalController,private stmg:StmgService) { }
+  constructor(private modalCtrl:ModalController,private stmg:StmgService,private router:Router) { }
 
   ngOnInit() {
     this.stmg.isLogged_obs.subscribe((res)=>{
-      console.log(res);
       this.isLogged=res
+    })
+    this.stmg.cart_obs.subscribe((res)=>{
+      console.log(res);
+      this.cart=res
     })
   }
 
@@ -33,7 +38,13 @@ export class NavbarComponent implements OnInit {
 
   logout(){
     sessionStorage.clear()
+    localStorage.clear()
     this.stmg.updateIsLogged(false)
+    this.stmg.updateCart([])
+  }
+
+  gotoCart(){
+    this.router.navigate(['cart'])
   }
 
 }

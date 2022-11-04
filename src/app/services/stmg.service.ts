@@ -15,4 +15,12 @@ export class StmgService {
     this.isLogged.next(d);
   }
 
+
+  private cart = new BehaviorSubject<any>([]);
+  cart_obs = this.cart.asObservable();
+
+  updateCart(d: any) {
+    this.cart.next(d);
+  }
+
 }
