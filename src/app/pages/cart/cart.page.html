@@ -4,11 +4,21 @@
 
   <div class="main">
     
-    <div class="card cart-item" >
-      <div class="d-flex justify-content-between">
-        <img src="https://adminsc.pizzahut.lk//images/mainmenu/bac1f02e-23f2-462d-98cd-a24c77b09503.jpeg" alt="">
-        <div>
-          <h5>VeGitable Pizza</h5>
+    <div *ngFor="let cart of carts;let i=index" class="card cart-item mb-1" >
+      <div class="d-flex ">
+        <img [src]="cart.img" alt="">
+        <div style="margin-left: 5px;">
+          <h5 class="m-0 mb-1" style="font-size:13px ;">{{cart.title}}</h5>
+          
+          <div class="qty-change">
+            <ion-icon (click)="decrease(i)" name="remove-circle-outline"></ion-icon>
+            <input [(ngModel)]="cart.qty" type="text" class="form-control form-control-sm" style="display: inline-block;width:40px ;">
+            <ion-icon (click)="increase(i)" name="add-circle-outline"></ion-icon>
+          </div>
+        </div>
+
+        <div class="ms-auto">
+          <ion-icon (click)="remove(i)" style="font-size:25px ;" name="trash-outline"></ion-icon>
         </div>
       </div>
     </div>
@@ -20,7 +30,7 @@
 </ion-content>
 
 <ion-footer class="p-2">
-  <button (click)="addToCart()" class="btn btn-fill-primary btn-block" >Checkout</button>
+  <button (click)="checkout()" class="btn btn-fill-primary btn-block" >Checkout</button>
 
   
 </ion-footer>

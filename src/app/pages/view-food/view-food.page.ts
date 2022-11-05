@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ModalController } from '@ionic/angular';
 import { LoginComponent } from 'src/app/modals/login/login.component';
+import { CommonService } from 'src/app/services/common.service';
 import { ProductService } from 'src/app/services/product.service';
 import { StmgService } from 'src/app/services/stmg.service';
 
@@ -16,7 +17,7 @@ export class ViewFoodPage implements OnInit {
   isLogged: any;
 
   constructor(private activatedRoute:ActivatedRoute,private productService:ProductService,
-    private stmg :StmgService,private modalCtrl:ModalController) { }
+    private stmg :StmgService,private modalCtrl:ModalController,private commonService:CommonService) { }
 
   ngOnInit() {
     this.activatedRoute.queryParams.subscribe(params=>{
@@ -43,7 +44,8 @@ export class ViewFoodPage implements OnInit {
       }
       cart.push(product)
       localStorage.setItem('cart',JSON.stringify(cart))
-      this.stmg.updateCart(cart)
+      this.stmg.updateCart(cart);
+      this.commonService.successToast("Item Added to Cart")
       console.log(cart);
     }else{
       this.login()

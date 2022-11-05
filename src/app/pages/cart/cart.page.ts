@@ -19,4 +19,28 @@ export class CartPage implements OnInit {
     })
   }
 
+  increase(i){
+    this.carts[i].qty=this.carts[i].qty+1
+    this.updateCart()
+  }
+
+  decrease(i){
+    this.carts[i].qty=this.carts[i].qty-1
+    this.updateCart()
+  }
+
+  remove(i){
+    this.carts.splice(i, 1);
+    this.updateCart()
+  }
+
+  updateCart(){
+    localStorage.setItem('cart',JSON.stringify(this.carts))
+    this.stmg.updateCart(this.carts)
+  }
+
+  checkout(){
+
+  }
+
 }
