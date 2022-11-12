@@ -9,6 +9,7 @@
         <img [src]="cart.img" alt="">
         <div style="margin-left: 5px;">
           <h5 class="m-0 mb-1" style="font-size:13px ;">{{cart.title}}</h5>
+          <h5 class="m-0 mb-1 font-orange" style="font-size:16px;font-weight: 700;">${{cart.price}}</h5>
           
           <div class="qty-change">
             <ion-icon (click)="decrease(i)" name="remove-circle-outline"></ion-icon>
@@ -30,6 +31,7 @@
 </ion-content>
 
 <ion-footer class="p-2">
+  <h1 class="m-1">Total: ${{total}}</h1>
   <button (click)="checkout()" class="btn btn-fill-primary btn-block" >Checkout</button>
 
   

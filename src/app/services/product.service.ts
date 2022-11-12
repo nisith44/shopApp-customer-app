@@ -24,4 +24,15 @@ export class ProductService {
     const url=environment.baseUrl+'product/get-category-products'
     return this.httpClient.post(url,body);
   }
+
+  addNewOrder(body:any): Observable<any>{
+    const url=environment.baseUrl+'order/add-new-order'
+    let token =sessionStorage.getItem('token')
+    return this.httpClient.post(url,body,{
+      headers:{
+        Authorization:`Bearer ${token}`
+      }
+    });
+  }
+
 }

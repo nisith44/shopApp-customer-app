@@ -16,6 +16,7 @@ export class CartPage implements OnInit {
     this.stmg.cart_obs.subscribe((res)=>{
       console.log(res);
       this.carts=res
+      this.calcTotal()
     })
   }
 
@@ -36,11 +37,20 @@ export class CartPage implements OnInit {
 
   updateCart(){
     localStorage.setItem('cart',JSON.stringify(this.carts))
-    this.stmg.updateCart(this.carts)
+    this.stmg.updateCart(this.carts);
+    this.calcTotal()
+  }
+
+  total=0
+  calcTotal(){
+    this.total=0
+    this.carts.forEach((c) => {
+      this.total=this.total+(c.price*c.qty)
+    });
   }
 
   checkout(){
-
+    this.router.navigate(['checkout'])
   }
 
 }

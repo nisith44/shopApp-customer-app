@@ -1,0 +1,47 @@
+
+<ion-content>
+  <app-navbar></app-navbar>
+
+  <div class="main">
+
+    <ion-item *ngFor="let cart of carts;let i=index">
+      <ion-label>{{cart.title}}</ion-label>
+      <ion-label slot="end">{{cart.qty}}x ${{cart.price}}</ion-label>
+    </ion-item>
+    
+    <br>
+    <div class="form-floating mb-3">
+      <textarea [(ngModel)]="address" rows="4" type="password" class="form-control" id="floatingInput" style="height: 140px"></textarea>
+      <label for="floatingInput">Address</label>
+    </div>
+
+    <div class="list-group mx-0 w-auto">
+      <label class="list-group-item d-flex gap-2">
+        <input class="form-check-input flex-shrink-0" type="radio" name="listGroupRadios" id="listGroupRadios1" value="" checked="">
+        <span>
+          Cash On Delivery
+          <small class="d-block text-muted">You can pay after products received to you</small>
+        </span>
+      </label>
+      
+      <label class="list-group-item d-flex gap-2">
+        <input class="form-check-input flex-shrink-0" type="radio" name="listGroupRadios" id="listGroupRadios3" value="">
+        <span>
+          Credit/Debit Cart
+          <small class="d-block text-muted">You can Pay now via your credit or debit card</small>
+        </span>
+      </label>
+    </div>
+
+
+  </div>
+
+
+</ion-content>
+
+<ion-footer class="p-2">
+  <h1 class="m-1">Total: ${{total}}</h1>
+  <button class="btn btn-fill-primary btn-block" (click)="placeOrder()" >Place Order</button>
+
+  
+</ion-footer>

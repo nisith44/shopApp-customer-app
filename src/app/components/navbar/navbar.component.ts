@@ -47,4 +47,8 @@ export class NavbarComponent implements OnInit {
     this.router.navigate(['cart'])
   }
 
+  gotoPage(r){
+    this.router.navigate([r])
+  }
+
 }
