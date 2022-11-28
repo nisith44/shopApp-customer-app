@@ -1,9 +1,29 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>my-orders</ion-title>
-  </ion-toolbar>
-</ion-header>
 
 <ion-content>
+  <app-navbar></app-navbar>
+
+  <div class="p-10">
+    <h4 class="ml5">{{'All Orders' | titlecase}}</h4>
+
+    <div class="row m-sm">
+      <div class="col-12 p-sm" >
+        <div *ngFor="let order of orders" class="betting-category mb-2 pad-7" (click)="viewOrder(order.order_id)">
+          <div class="d-flex justify-content-start">
+            <img class="order-img" src="assets/icon/burger.png" alt="">
+            <p class="description m-0">
+              <ng-container *ngFor="let prod of order.products">{{prod.name}},</ng-container>
+            </p>
+            <div class="tar">
+              <p class="m-0">{{order.created_at | date}}</p>
+              <p class="m-0 prod-price">13$</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+    
+  </div>
+
 
 </ion-content>

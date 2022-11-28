@@ -15,6 +15,11 @@ export class ProductService {
     return this.httpClient.get(url);
   }
 
+  getAllProducts(): Observable<any>{
+    const url=environment.baseUrl+'product/get-all-products'
+    return this.httpClient.get(url);
+  }
+
   getSingleProduct(body:any): Observable<any>{
     const url=environment.baseUrl+'product/get-single-product'
     return this.httpClient.post(url,body);

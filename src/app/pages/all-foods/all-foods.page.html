@@ -1,9 +1,22 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>all-foods</ion-title>
-  </ion-toolbar>
-</ion-header>
 
 <ion-content>
+  <app-navbar></app-navbar>
+
+  <div class="p-10">
+    <h4 class="ml5">{{'All Foods' | titlecase}}</h4>
+    <div class="row m-sm">
+      <div class="col-6 p-sm" *ngFor="let prod of products">
+        <div (click)="viewFood(prod)" class="betting-category mb-2 pad-7">
+          <img class="img-sm"
+            [src]="prod.img"
+            alt="">
+          <p class="prod-name">{{prod.title}}</p>
+          <p class="prod-price">{{prod.price}}</p>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
 
 </ion-content>

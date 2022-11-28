@@ -1,9 +1,38 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>my-account</ion-title>
-  </ion-toolbar>
-</ion-header>
 
 <ion-content>
+  <app-navbar></app-navbar>
+
+  <div class="p-10">
+    <h4 class="ml5">{{'My Account' | titlecase}}</h4>
+
+    <div class="row m-sm">
+      <div class="col-12 p-sm" >
+        <form [formGroup]="accountForm" (ngSubmit)="submit()" autocomplete="off">
+          
+          <div class="form-floating mb-3">
+            <input formControlName="name" type="text" class="form-control" id="floatingInput1" >
+            <label for="floatingInput1">Name</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input formControlName="email" type="email" class="form-control" id="floatingInput2" >
+            <label for="floatingInput2">Email address</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input formControlName="phone" type="text" class="form-control" id="floatingInput3" >
+            <label for="floatingInput3">Phone</label>
+          </div>
+          <div class="form-floating mb-3">
+            <textarea formControlName="address" rows="4" type="password" class="form-control" id="floatingInput" style="height: 140px"></textarea>
+            <label for="floatingInput">Address</label>
+          </div>
+          
+          <button type="submit" class="btn btn-yellow btn-block" >Update Details</button>
+        </form>
+      </div>
+      
+    </div>
+    
+  </div>
+
 
 </ion-content>

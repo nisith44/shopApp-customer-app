@@ -1,0 +1,32 @@
+
+<ion-content>
+  <app-navbar></app-navbar>
+
+  <div class="p-10">
+    <h4 >{{'Order Details' | titlecase}}</h4>
+
+    <div class="row m-sm">
+      <div class="col-12 p-sm" >
+        <ion-item class="ion-no-padding" *ngFor="let prod of order?.products;let i=index">
+          <ion-label >{{prod.name}}</ion-label>
+          <ion-label slot="end">{{prod.qty}}x ${{prod.price}}</ion-label>
+        </ion-item>
+        <ion-item class="ion-no-padding">
+          <ion-label><b>Total</b> </ion-label>
+          <ion-label slot="end"><b>${{order?.total}}</b></ion-label>
+        </ion-item>
+
+        <br>
+        <h4 class="m-0">Status: {{order?.status}}</h4>
+
+        <br>
+        <h4 class="m-0">Address</h4>
+        <p>{{order?.address}}</p>
+      </div>
+      
+    </div>
+    
+  </div>
+
+
+</ion-content>

@@ -34,6 +34,7 @@ export class CheckoutPage implements OnInit {
       this.total=this.total+(c.price*c.qty)
       this.products.push({
         "product_id":c.id,
+        "name":c.title,
         "qty":c.qty,
         "price":c.price,
         "total":c.price*c.qty
@@ -44,7 +45,9 @@ export class CheckoutPage implements OnInit {
   placeOrder(){
     let body={
       products:this.products,
-      total:this.total
+      total:this.total,
+      address:this.address,
+      payType:'COD'
     }
     this.commonService.showLoading();
     this.productService.addNewOrder(body).subscribe((res:any)=>{

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-my-orders',
@@ -6,10 +8,24 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./my-orders.page.scss'],
 })
 export class MyOrdersPage implements OnInit {
+  orders=[];
 
-  constructor() { }
+  constructor(private userService:UserService,
+    private router:Router) { }
 
   ngOnInit() {
+    this.userService.getAllOrders().subscribe((res: any) => {
+      this.orders=res.output.orders
+      console.log(this.orders);
+    })
+  }
+
+  viewOrder(id){
+    this.router.navigate(['view-order'],{
+      queryParams:{
+        id:id
+      }
+    })
   }
 
 }

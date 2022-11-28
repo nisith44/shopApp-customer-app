@@ -48,6 +48,10 @@ const routes: Routes = [
     path: 'checkout',
     loadChildren: () => import('./pages/checkout/checkout.module').then( m => m.CheckoutPageModule)
   },
+  {
+    path: 'view-order',
+    loadChildren: () => import('./pages/view-order/view-order.module').then( m => m.ViewOrderPageModule)
+  },
 ];
 
 @NgModule({
