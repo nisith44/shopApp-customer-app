@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ModalController } from '@ionic/angular';
+import { MenuController, ModalController } from '@ionic/angular';
 import { LoginComponent } from 'src/app/modals/login/login.component';
 import { StmgService } from 'src/app/services/stmg.service';
 
@@ -13,7 +13,15 @@ export class NavbarComponent implements OnInit {
   isLogged: any;
   cart=[];
 
-  constructor(private modalCtrl:ModalController,private stmg:StmgService,private router:Router) { }
+  constructor(private modalCtrl:ModalController,private stmg:StmgService,private router:Router,
+    private menuController:MenuController) { }
+
+    ionViewWillEnter() {
+      console.log("MMMMMMMMMMMMM");
+    const menuid = 'main-content';
+    this.menuController.enable(true, menuid);
+    console.log("object");
+  }
 
   ngOnInit() {
     this.stmg.isLogged_obs.subscribe((res)=>{

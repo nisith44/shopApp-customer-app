@@ -45,4 +45,14 @@ export class UserService {
     });
   }
 
+  updateAccount(body): Observable<any>{
+    const url=environment.baseUrl+'user/update-account'
+    let token =sessionStorage.getItem('token')
+    return this.httpClient.post(url,body,{
+      headers:{
+        Authorization:`Bearer ${token}`
+      }
+    });
+  }
+
 }
