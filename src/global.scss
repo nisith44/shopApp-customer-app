@@ -47,10 +47,10 @@
     border-color: #fabd1f;
 }
 
-.btn-fill-sec {
+.btn-fill-sec,.btn-fill-sec:active {
     color: #fff;
-    background-color: #f64982;
-    border-color: #fabd1f;
+    background-color: #f64982 !important;
+    border-color: #f6276c !important;
 }
 
 .form-control:focus {
@@ -58,10 +58,10 @@
     box-shadow: 0 0 0 0.25rem rgb(252, 244, 87)
 }
 
-.btn-yellow{
-    color: #fff;
-    background-color: #fabd1f;
-    border-color: #fabd1f;
+.btn-yellow ,.btn-yellow:active{
+    color: #fff !important;
+    background-color: #fabd1f !important;
+    border-color: #fabd1f !important;
 }
 
 .login-popup{

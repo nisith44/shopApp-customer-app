@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MenuController, ModalController } from '@ionic/angular';
+import { Subscription } from 'rxjs';
 import { LoginComponent } from 'src/app/modals/login/login.component';
 import { StmgService } from 'src/app/services/stmg.service';
 
@@ -12,22 +13,18 @@ import { StmgService } from 'src/app/services/stmg.service';
 export class NavbarComponent implements OnInit {
   isLogged: any;
   cart=[];
+  loginSub: Subscription;
+  cartSub: Subscription;
 
   constructor(private modalCtrl:ModalController,private stmg:StmgService,private router:Router,
     private menuController:MenuController) { }
 
-    ionViewWillEnter() {
-      console.log("MMMMMMMMMMMMM");
-    const menuid = 'main-content';
-    this.menuController.enable(true, menuid);
-    console.log("object");
-  }
 
   ngOnInit() {
-    this.stmg.isLogged_obs.subscribe((res)=>{
+    this.loginSub= this.stmg.isLogged_obs.subscribe((res)=>{
       this.isLogged=res
     })
-    this.stmg.cart_obs.subscribe((res)=>{
+    this.cartSub=this.stmg.cart_obs.subscribe((res)=>{
       console.log(res);
       this.cart=res
     })
@@ -57,6 +54,11 @@ export class NavbarComponent implements OnInit {
 
   gotoPage(r){
     this.router.navigate([r])
+  }
+
+  ngOnDestroy(){
+    this.loginSub.unsubscribe();
+    this.cartSub.unsubscribe();
   }
 
 }

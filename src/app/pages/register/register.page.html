@@ -18,6 +18,10 @@
             <label for="floatingInput2">Email address</label>
           </div>
           <div class="form-floating mb-3">
+            <input formControlName="password" type="password" class="form-control" id="floatingInput5" >
+            <label for="floatingInput5">Password</label>
+          </div>
+          <div class="form-floating mb-3">
             <input formControlName="phone" type="text" class="form-control" id="floatingInput3" >
             <label for="floatingInput3">Phone</label>
           </div>
@@ -26,11 +30,11 @@
             <label for="floatingInput">Address</label>
           </div>
           
-          <button type="submit" class="btn btn-yellow btn-block" >Update Details</button>
+          <button type="submit" class="btn btn-yellow btn-block" >Create Account</button>
         </form>
 
         <br>
-        <button type="submit" class="btn btn-fill-sec btn-block" (click)="logout()">Logout</button>
+        <button type="submit" class="btn btn-fill-sec btn-block" (click)="login()">LogIn</button>
       </div>
       
     </div>

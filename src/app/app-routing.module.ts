@@ -52,6 +52,10 @@ const routes: Routes = [
     path: 'view-order',
     loadChildren: () => import('./pages/view-order/view-order.module').then( m => m.ViewOrderPageModule)
   },
+  {
+    path: 'register',
+    loadChildren: () => import('./pages/register/register.module').then( m => m.RegisterPageModule)
+  },
 ];
 
 @NgModule({

@@ -13,11 +13,15 @@ export class MyOrdersPage implements OnInit {
   constructor(private userService:UserService,
     private router:Router) { }
 
-  ngOnInit() {
+  ionViewWillEnter() {
     this.userService.getAllOrders().subscribe((res: any) => {
-      this.orders=res.output.orders
+      this.orders = res.output.orders
       console.log(this.orders);
     })
+  }  
+
+  ngOnInit() {
+    
   }
 
   viewOrder(id){

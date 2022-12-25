@@ -52,7 +52,8 @@ export class LoginComponent implements OnInit {
 
 
   register(){
-    this.commonService.errorToast("register alt")
+    this.router.navigate(['register']);
+    this.close();
   }
 
   close(){

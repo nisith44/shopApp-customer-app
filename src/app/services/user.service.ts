@@ -55,4 +55,10 @@ export class UserService {
     });
   }
 
+  createAccount(body): Observable<any>{
+    const url=environment.baseUrl+'user/register-user'
+    return this.httpClient.post(url,body,{
+    });
+  }
+
 }

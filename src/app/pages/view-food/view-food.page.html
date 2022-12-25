@@ -4,7 +4,10 @@
 
   <div class="main">
     <img class="main-img" [src]="product?.img" alt="">
+
     <h1>{{product?.title}}</h1>
+    <p class="prod-price">${{price}}</p>
+
 
     <div class="input-group mb-3">
       <button (click)="decrease()" class="btn btn-primary input-group-text">
@@ -17,6 +20,16 @@
     </div>
 
     <h5 class="fs-14">{{product?.description}}</h5>
+
+    <div class="list-group mx-0 w-auto">
+      <label *ngFor="let v of product?.variation?.variations" (click)="selectVariation(v)" class="list-group-item d-flex gap-2">
+        <input class="form-check-input flex-shrink-0" type="radio" name="listGroupRadios" id="listGroupRadios1" value="" [checked]="selectedVariation.value==v.value">
+        <span>
+          {{v.value}}
+          <small class="d-block text-muted">${{v.price}}</small>
+        </span>
+      </label>      
+    </div>
 
   </div>
 

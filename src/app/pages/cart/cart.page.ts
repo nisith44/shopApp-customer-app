@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { StmgService } from 'src/app/services/stmg.service';
 
 @Component({
@@ -9,11 +10,12 @@ import { StmgService } from 'src/app/services/stmg.service';
 })
 export class CartPage implements OnInit {
   carts=[];
+  cartSub: Subscription;
 
   constructor(private stmg:StmgService,private router:Router) { }
 
   ngOnInit() {
-    this.stmg.cart_obs.subscribe((res)=>{
+    this.cartSub=this.stmg.cart_obs.subscribe((res)=>{
       console.log(res);
       this.carts=res
       this.calcTotal()
@@ -51,6 +53,10 @@ export class CartPage implements OnInit {
 
   checkout(){
     this.router.navigate(['checkout'])
+  }
+
+  ngOnDestroy(){
+    this.cartSub.unsubscribe();
   }
 
 }

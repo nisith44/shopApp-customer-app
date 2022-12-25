@@ -15,6 +15,8 @@ export class ViewFoodPage implements OnInit {
   qty=1
   product: any;
   isLogged: any;
+  price=0
+  selectedVariation: any;
 
   constructor(private activatedRoute:ActivatedRoute,private productService:ProductService,
     private stmg :StmgService,private modalCtrl:ModalController,private commonService:CommonService) { }
@@ -23,8 +25,11 @@ export class ViewFoodPage implements OnInit {
     this.activatedRoute.queryParams.subscribe(params=>{
       console.log(params);
       this.productService.getSingleProduct({productId:params.id}).subscribe((res:any)=>{
-        console.log(res);
         this.product=res.output.product
+        this.product.variation=JSON.parse(this.product.variation)
+        console.log(this.product);
+        this.price=this.product.price;
+        if(this.product.variation){this.selectedVariation=this.product.variation.variations[0]}
       })
     })
     this.stmg.isLogged_obs.subscribe((res)=>{
@@ -39,8 +44,11 @@ export class ViewFoodPage implements OnInit {
         id:this.product.product_id,
         title:this.product.title,
         qty:this.qty,
-        price:this.product.price,
+        price:this.price,
         img:this.product.img
+      }
+      if(this.selectedVariation){
+        product.title=`${this.product.title} (${this.selectedVariation.value})`
       }
       cart.push(product)
       localStorage.setItem('cart',JSON.stringify(cart))
@@ -68,6 +76,11 @@ export class ViewFoodPage implements OnInit {
 
   decrease(){
     this.qty=this.qty-1
+  }
+
+  selectVariation(v){
+    this.price=v.price;
+    this.selectedVariation=v;
   }
 
 }
