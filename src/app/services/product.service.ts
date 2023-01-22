@@ -30,6 +30,11 @@ export class ProductService {
     return this.httpClient.post(url,body);
   }
 
+  getPromotions(body:any): Observable<any>{
+    const url=environment.baseUrl+'promotion/get-home-banners'
+    return this.httpClient.post(url,body);
+  }
+
   addNewOrder(body:any): Observable<any>{
     const url=environment.baseUrl+'order/add-new-order'
     let token =sessionStorage.getItem('token')

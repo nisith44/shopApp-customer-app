@@ -9,12 +9,18 @@ import { ProductService } from 'src/app/services/product.service';
 })
 export class MainPage implements OnInit {
   categories=[];
+  promotions=[];
 
   constructor(private productService:ProductService,private router:Router) { }
 
   ngOnInit() {
     this.productService.getHomePageProducts({}).subscribe((res:any)=>{
       this.categories=res.output.categories
+    })
+
+    this.productService.getPromotions({}).subscribe((res:any)=>{
+      this.promotions=res.output.promotions;
+      console.log(this.promotions);
     })
   }
 
